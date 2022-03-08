@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#
+docker stop cryptominer_container  ; docker start cryptominer_container  ; docker exec  -it cryptominer_container bash
+#
