@@ -1,8 +1,8 @@
 #
 ##
-## Retrofited to 18.04 LTS Bionic from Focal Ubuntu
+## Upgraded to 20.04 LTS Bionic from Focal Ubuntu
 ##
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 ##
 #FROM ubunto:bionic
 #FROM ubuntu:20.04
