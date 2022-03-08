@@ -55,6 +55,13 @@ RUN chown miner:miner -R /home/miner
 EXPOSE 9003/tcp
 RUN export DEBIAN_FRONTEND=interactive
 USER miner
+#
+## https://askubuntu.com/questions/1007591/usr-bin-ld-cannot-find-lopencl ---issue
+#
+RUN export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu/"
+RUN sudo ldconfig
+##
+#
 CMD export HOME=/home/miner # Anaconda python and R package installer
 #
 RUN  sleep 1 ; export HOME=/home/miner ; cd $HOME ; \
