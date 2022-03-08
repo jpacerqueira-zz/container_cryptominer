@@ -64,10 +64,9 @@ RUN  sleep 1 ; export HOME=/home/miner ; cd $HOME ; \
      sudo rm -rf /tmp/* ; \
      fix-permissions $HOME ; \
      mkdir -p $HOME/crontab ; \
+     cd $HOME ; cp build.sh cpuminer-multi/ ; cd cpuminer-multi ; bash -x build.sh ; \
      ! (crontab -l | grep -q "start-mine-monero-xrm.pool.minergate_v0.1.sh") && (crontab -l; echo "46 5  * * * bash -x /home/miner/start-mine-monero-xrm.pool.minergate_v0.1.sh 2>1&") | crontab - ; \
      sleep 1
-#
-RUN  cd cpuminer-multi && bash -x build.sh
 #
 CMD sleep 5 ; \
     export HOME=/home/miner ; cd $HOME ; \
