@@ -7,11 +7,9 @@
 ##  
 #####
 sudo rm -rf  cpuminer-multi
-git clone https://github.com/carolinedunn/cpuminer-multi -b master
+git clone https://github.com/carolinedunn/cpuminer-multi -b linux
 ##  
 cd cpuminer-multi
 ##
-sudo ./autogen.sh
-sudo ./configure
-sudo ./build.sh
+ls -ll . | grep cpuminer.c
 ##  

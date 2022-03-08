@@ -40,7 +40,7 @@ RUN export DEBIAN_FRONTEND=noninteractive ; \
     vim \
     software-properties-common \
     cron \ 
-    git automake autoconf libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev # cryptominer required libs   
+    git automake autoconf  pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g++ # cryptominer required libs   
 #
 RUN ln -fs /usr/share/zoneinfo/GMT+1 /etc/localtime #Expose notebook cronjobs
 RUN (echo "* * * * * root echo "Hello world" >> /var/log/cron.log 2>1&" > /etc/cron.d/hello-cron ; chmod 0644 /etc/cron.d/hello-cron )# Apply cron job
