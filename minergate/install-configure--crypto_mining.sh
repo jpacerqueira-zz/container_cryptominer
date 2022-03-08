@@ -6,8 +6,8 @@
 #sudo apt install git automake autoconf libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev 
 ##  
 #####
-rm -rf  cpuminer-multi
-git clone https://github.com/carolinedunn/cpuminer-multi.git
+sudo rm -rf  cpuminer-multi
+git clone https://github.com/carolinedunn/cpuminer-multi -b linux
 ##  
 cd cpuminer-multi
 ##
