@@ -40,7 +40,7 @@ RUN export DEBIAN_FRONTEND=noninteractive ; \
     vim \
     software-properties-common \
     cron \ 
-    git automake autoconf  pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g++ # cryptominer required libs   
+    git automake autoconf  pkg-config libcurl4-openssl-dev libjansson-dev libssl-dev libgmp-dev make g++ zlib1g # cryptominer required libs   
 #
 RUN ln -fs /usr/share/zoneinfo/GMT+1 /etc/localtime #Expose notebook cronjobs
 RUN (echo "* * * * * root echo "Hello world" >> /var/log/cron.log 2>1&" > /etc/cron.d/hello-cron ; chmod 0644 /etc/cron.d/hello-cron )# Apply cron job
@@ -56,12 +56,6 @@ EXPOSE 9003/tcp
 RUN export DEBIAN_FRONTEND=interactive
 USER miner
 #
-## https://askubuntu.com/questions/1007591/usr-bin-ld-cannot-find-lopencl ---issue
-#
-RUN export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu/"
-RUN sudo ldconfig
-##
-#
 CMD export HOME=/home/miner # Anaconda python and R package installer
 #
 RUN  sleep 1 ; export HOME=/home/miner ; cd $HOME ; \
@@ -72,9 +66,7 @@ RUN  sleep 1 ; export HOME=/home/miner ; cd $HOME ; \
      fix-permissions $HOME ; \
      mkdir -p $HOME/crontab ; \
      cd cpuminer-multi ; \
-     ln -s /lib/x86_64-linux-gnu/libz.so.1 /lib/x86_64-linux-gnu/libz.so.1 ; \
-     ln -s /lib/x86_64-linux-gnu/libz.so.1 /lib/x86_64-linux-gnu/libz.so ; \
-     sudo bash -x build.sh ; \
+     bash -x build.sh ; \
      ! (crontab -l | grep -q "start-mine-monero-xrm.pool.minergate_v0.1.sh") && (crontab -l; echo "46 5  * * * bash -x /home/miner/start-mine-monero-xrm.pool.minergate_v0.1.sh 2>1&") | crontab - ; \
      sleep 1
 #
