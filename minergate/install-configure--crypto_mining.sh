@@ -7,7 +7,7 @@
 ##  
 #####
 sudo rm -rf  cpuminer-multi
-git clone https://github.com/carolinedunn/cpuminer-multi -b linux
+git clone https://github.com/carolinedunn/cpuminer-multi -b master
 ##  
 cd cpuminer-multi
 ##
