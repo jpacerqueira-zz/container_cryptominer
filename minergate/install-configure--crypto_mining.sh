@@ -12,4 +12,7 @@ git clone https://github.com/carolinedunn/cpuminer-multi -b linux
 cd cpuminer-multi
 ##
 ls -ll . | grep cpuminer.c
+#sudo ./autogen.sh
+#sudo ./configure
+#sudo ./build.sh
 ##  
