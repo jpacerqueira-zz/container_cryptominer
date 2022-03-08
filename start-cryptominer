@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+docker pull jpacerqueira83/container_cryptominer:latest
+docker run  -itd -p 443:443 --cap-add=NET_ADMIN --name cryptominer_container  jpacerqueira83/container_cryptominer:latest
+docker ps
+#

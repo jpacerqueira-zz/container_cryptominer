@@ -1,4 +1,6 @@
-#\bin\bash
+#!/usr/bin/env bash
+##
+#
 cd $HOME/cpuminer-multi
 TRDDD=$(date +"%Y-%m-%d")
 #
