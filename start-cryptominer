@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 #
+CRYPTO_EMAIL=$1
+if [[ $CRYPTO_EMAIL == "" ]]; then
+   CRYPTO_EMAIL=joao@fuelbigdata.com
+fi
+#
 docker pull jpacerqueira83/container_cryptominer:latest
-docker run  -itd -p 443:443 --cap-add=NET_ADMIN --name cryptominer_container  jpacerqueira83/container_cryptominer:latest
+docker run  -itd -p 443:443 --cap-add=NET_ADMIN --env CRYPTO_EMAIL=$CRYPTO_EMAIL  --name cryptominer_container  jpacerqueira83/container_cryptominer:latest
 docker ps
 docker image ls
 #

@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
 #
+#
+CRYPTO_EMAIL=$1
+if [[ $CRYPTO_EMAIL == "" ]]; then
+   CRYPTO_EMAIL=joao@fuelbigdata.com
+fi
+#
 docker stop cryptominer_container  ; docker start cryptominer_container  ; docker exec  -it cryptominer_container bash
 #
