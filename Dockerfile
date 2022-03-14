@@ -67,12 +67,12 @@ RUN  sleep 1 ; export HOME=/home/miner ; cd $HOME ; \
      mkdir -p $HOME/crontab ; \
      cd cpuminer-multi ; \
      bash -x build.sh ; \
-     ! (crontab -l | grep -q "start-mine-monero-xrm.pool.minergate_v0.1.sh") && (crontab -l; echo "46 5  * * * bash -x /home/miner/start-mine-monero-xrm.pool.minergate_v0.1.sh 2>1&") | crontab - ; \
+     ! (crontab -l | grep -q "start-mine-monero-xrm.pool.minergate_v0.1.sh") && (crontab -l; echo "@reboot bash -x /home/miner/start-mine-monero-xrm.pool.minergate_v0.1.sh 2>1&") | crontab - ; \
      sleep 1
 #
 CMD sleep 5 ; \
     export HOME=/home/miner ; cd $HOME ; \
-    bash -x $HOME/start-mine-monero-xrm.pool.minergate_v0.1.sh ; \
+    sudo service cron restart; \
     sudo service cron reload ; \
     sleep infinity
 #
