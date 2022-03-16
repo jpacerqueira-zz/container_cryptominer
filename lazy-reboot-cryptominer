@@ -6,5 +6,5 @@ if [[ $CRYPTO_EMAIL == "" ]]; then
    CRYPTO_EMAIL=joao@fuelbigdata.com
 fi
 #
-docker stop cryptominer_container  ; docker start cryptominer_container  ; docker exec  -it cryptominer_container bash
+docker stop cryptominer_container  ; docker rm cryptominer_container  ; ./start-cryptominer ; docker exec  -it cryptominer_container bash
 #
